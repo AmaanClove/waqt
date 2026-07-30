@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waqt | Premium UAE Compliance Concierge</title>
+    
+    <!-- SEO & Open Graph Meta Tags -->
+    <meta name="description" content="The dedicated WhatsApp compliance concierge for UAE's solo founders and small businesses. We track Corporate Tax, VAT, and License deadlines.">
+    <meta property="og:title" content="Waqt | Dedicated UAE Compliance Concierge">
+    <meta property="og:description" content="Never miss a tax deadline again. The WhatsApp-first compliance concierge for UAE small businesses.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://waqt.ae">
+    
+    <!-- Tab Logo (Favicon) -->
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <!-- Preload Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" as="style">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            900: '#0a0f18', 
+                            800: '#141c2b',
+                            700: '#2a364a',
+                            500: '#64748b',
+                            gold: '#d4af37', 
+                            goldlight: '#f3e5ab',
+                            cream: '#faeede', 
+                            light: '#fdfcfb', 
+                        }
+                    },
+                    boxShadow: {
+                        'bento': '0 4px 24px -8px rgba(0, 0, 0, 0.08)',
+                        'gold-glow': '0 0 25px rgba(212, 175, 55, 0.3)',
+                        'gold-glow-hover': '0 0 40px rgba(212, 175, 55, 0.5)',
+                        'wa-glow': '0 0 20px rgba(37, 211, 102, 0.4)',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out 3s infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'marquee': 'marquee 30s linear infinite',
+                        'typing': 'typing 1.4s infinite ease-in-out both',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        },
+                        typing: {
+                            '0%, 80%, 100%': { transform: 'scale(0)' },
+                            '40%': { transform: 'scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #fdfcfb;
+        }
+
+        /* Scroll Progress Bar */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: #d4af37;
+            z-index: 100;
+            transition: width 0.1s ease-out;
+        }
+
+        .header-bg {
+            background-color: #faeede; 
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .gradient-text-gold {
+            background: linear-gradient(135deg, #d4af37 0%, #b89324 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        section[id] { scroll-margin-top: 89px; }
+
+        /* Smooth Scroll Reveals */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 100ms; }
+        .reveal-delay-2 { transition-delay: 200ms; }
+
+        /* Non-Destructive Smart Glow Classes */
+        .glow-card-subtle {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glow-card-subtle:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .glow-card-luminous {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glow-card-luminous:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 255, 255, 0.1);
+        }
+        
+        button, a { transition: all 0.3s ease; }
+        img { transition: transform 0.5s ease; }
+        
+        /* FAQ Accordion */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s ease;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding-top: 1rem;
+            padding-bottom: 1.5rem;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+            color: #d4af37;
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* iPhone UI */
+        .iphone-mockup {
+            box-shadow: inset 0 0 0 10px #141c2b, 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border-radius: 3rem;
+        }
+        .iphone-notch {
+            width: 120px; height: 25px;
+            background-color: #141c2b;
+            border-bottom-left-radius: 16px; border-bottom-right-radius: 16px;
+            position: absolute; top: 0; left: 50%;
+            transform: translateX(-50%); z-index: 30;
+        }
+        
+        /* Typing Dots */
+        .dot {
+            width: 6px; height: 6px;
+            background-color: #9CA3AF;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .dot:nth-child(1) { animation-delay: -0.32s; }
+        .dot:nth-child(2) { animation-delay: -0.16s; }
+
+        /* Custom Modal Scrollbar */
+        .modal-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .modal-scroll::-webkit-scrollbar-track {
+            background: #f1f5f9; 
+            border-radius: 8px;
+        }
+        .modal-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 8px;
+        }
+        .modal-scroll::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+    </style>
+</head>
+<body class="font-sans text-brand-700 relative selection:bg-brand-gold selection:text-brand-900">
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/918128564631" target="_blank" aria-label="Chat on WhatsApp" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-wa-glow hover:scale-110 transition-transform duration-300">
+        <i class="fab fa-whatsapp"></i>
+        <span class="absolute top-0 right-0 flex h-4 w-4">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-4 w-4 bg-red-500 border-2 border-[#25D366]"></span>
+        </span>
+    </a>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-40 transition-all duration-300 header-bg py-3" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <img src="logo2.png" alt="Waqt Logo" class="h-10 md:h-12 w-auto object-contain" onerror="this.src='https://placehold.co/120x40/faeede/0a0f18?text=WAQT'">
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#reality" class="nav-link text-sm font-semibold text-brand-900 hover:text-brand-gold transition-colors">The Reality</a>
+                    <a href="#services" class="nav-link text-sm font-semibold text-brand-900 hover:text-brand-gold transition-colors">Services</a>
+                    <a href="#how-it-works" class="nav-link text-sm font-semibold text-brand-900 hover:text-brand-gold transition-colors">Process</a>
+                    <a href="#why-us" class="nav-link text-sm font-semibold text-brand-900 hover:text-brand-gold transition-colors">Why Us</a>
+                    <a href="#pricing" class="nav-link text-sm font-semibold text-brand-900 hover:text-brand-gold transition-colors">Pricing</a>
+                    <a href="#faq" class="nav-link text-sm font-semibold text-brand-900 hover:text-brand-gold transition-colors">FAQ</a>
+                    
+                    <div class="flex items-center pl-4 border-l border-brand-900/10">
+                        <a href="#book-call" class="bg-brand-900 text-brand-cream px-6 py-2.5 rounded-full text-sm font-bold hover:bg-brand-800 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all">
+                            Book Free Check
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center gap-4">
+                    <button id="mobile-menu-btn" aria-label="Toggle Menu" class="text-brand-900 hover:text-brand-gold focus:outline-none p-2 transition-colors">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-brand-cream border-t border-brand-900/10 absolute w-full shadow-2xl mt-0 pb-6">
+            <div class="px-4 pt-4 space-y-2">
+                <a href="#reality" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-brand-900 hover:bg-white/50 transition-colors">The Reality</a>
+                <a href="#services" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-brand-900 hover:bg-white/50 transition-colors">Services</a>
+                <a href="#how-it-works" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-brand-900 hover:bg-white/50 transition-colors">Process</a>
+                <a href="#why-us" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-brand-900 hover:bg-white/50 transition-colors">Why Us</a>
+                <a href="#pricing" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-brand-900 hover:bg-white/50 transition-colors">Pricing</a>
+                <a href="#faq" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-brand-900 hover:bg-white/50 transition-colors">FAQ</a>
+                <div class="pt-4 flex flex-col gap-3">
+                    <a href="#book-call" class="mobile-link block w-full text-center bg-brand-900 text-brand-cream px-6 py-4 rounded-xl font-bold shadow-lg">
+                        Book Free Check
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-[80px] pb-[60px] overflow-hidden">
+        <img src="background1.jpg" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover pointer-events-none z-0" onerror="this.src='https://placehold.co/1920x1080/0a0f18/141c2b'">
+        <div class="absolute inset-0 bg-brand-900/30 z-0 pointer-events-none"></div>
+        <div class="absolute top-1/4 left-1/4 w-[30rem] h-[30rem] bg-brand-gold/10 rounded-full blur-[120px] pointer-events-none animate-pulse-slow z-0"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full mt-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 reveal active text-center lg:text-left pt-4">
+                    
+                    <!-- Trust Badges -->
+                    <ul class="flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-2 text-sm text-gray-300 mb-6 font-medium">
+                        <li><i class="fas fa-check-circle text-[#25D366] mr-1.5"></i> WhatsApp-First</li>
+                        <li><i class="fas fa-check-circle text-brand-gold mr-1.5"></i> Exclusively UAE</li>
+                        <li><i class="fas fa-check-circle text-brand-gold mr-1.5"></i> Human Concierge</li>
+                    </ul>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-[4rem] font-serif font-bold text-white leading-[1.15] mb-6 drop-shadow-lg">
+                        You can owe <i class="font-light">zero tax</i> and still get fined <span class="gradient-text-gold block mt-2">AED 10,000.</span>
+                    </h1>
+                    
+                    <p class="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light drop-shadow-md">
+                        The dedicated WhatsApp compliance concierge for UAE solopreneurs and small businesses. We track your Corporate Tax, VAT, and License deadlines so you manage your business, not spreadsheets.
+                    </p>
+                    
+                    <!-- Urgency -->
+                    <p class="text-sm text-brand-gold font-bold mb-4 uppercase tracking-widest"><i class="fas fa-clock mr-2"></i>Today's regulations won't wait.</p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+                        <a href="#book-call" class="w-full sm:w-auto bg-brand-gold text-brand-900 px-8 py-4 rounded-full text-lg font-bold shadow-gold-glow hover:shadow-gold-glow-hover hover:scale-105 flex items-center justify-center gap-3 transition-all">
+                            <i class="far fa-calendar-check"></i> Book My Free Check
+                        </a>
+                    </div>
+                    
+                    <!-- Official Disclaimer -->
+                    <p class="text-[11px] text-gray-400 mt-6 max-w-lg mx-auto lg:mx-0 font-medium leading-relaxed border-l-2 border-brand-500/50 pl-3">
+                        Waqt provides compliance reminders and deadline guidance. Government filings remain the responsibility of you or your licensed accountant. No payment info required to book.
+                    </p>
+                </div>
+
+                <div class="lg:col-span-5 hidden lg:block reveal active relative px-4">
+                    <!-- Elegant Premium Notice Card -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-tr from-brand-gold/20 via-transparent to-brand-900/10 blur-[80px] -z-10 animate-pulse-slow pointer-events-none"></div>
+                    
+                    <!-- Main Card Wrapper -->
+                    <div class="bg-[#fdfbf7] border border-white/80 rounded-[2rem] relative z-10 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.25)] animate-float overflow-hidden group glow-card-luminous">
+                        
+                        <!-- Subtle premium texture overlay -->
+                        <div class="absolute inset-0 opacity-[0.02] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none"></div>
+
+                        <!-- Top Glowing Accent Line -->
+                        <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-brand-gold/60 via-brand-gold to-brand-gold/60"></div>
+
+                        <!-- Elegant Urgent Badge -->
+                        <div class="absolute top-6 right-6 bg-red-50/90 backdrop-blur-sm text-red-700 text-[10px] font-bold px-3 py-1.5 rounded-full tracking-wider uppercase shadow-sm border border-red-100 flex items-center gap-2 z-20">
+                            <span class="relative flex h-1.5 w-1.5">
+                              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                              <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-500"></span>
+                            </span> 
+                            Action Required
+                        </div>
+
+                        <!-- Card Header -->
+                        <div class="p-8 pb-6 relative z-10">
+                            <div class="flex items-start gap-4">
+                                <div class="relative flex-shrink-0">
+                                    <div class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center border border-gray-100 shadow-sm mt-1">
+                                        <i class="fas fa-file-signature text-brand-900 text-2xl"></i>
+                                    </div>
+                                </div>
+                                <div class="pt-1 pr-28"> <!-- Prevents overlap with the absolute badge -->
+                                    <h3 class="text-brand-900 font-serif font-bold text-2xl tracking-wide leading-tight">FTA Notice</h3>
+                                    <p class="text-brand-500 text-[11px] font-bold tracking-wider uppercase mt-1.5">Corporate Tax Registration</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card Body (Data Points) -->
+                        <div class="p-8 space-y-4 relative z-10 pt-0">
+                            <div class="bg-white rounded-xl p-6 border border-gray-100 flex flex-col items-center justify-center gap-1 group-hover:border-brand-gold/30 transition-colors shadow-sm">
+                                <span class="text-brand-500 text-xs font-bold uppercase tracking-wider">Automatic Penalty</span>
+                                <span class="text-brand-900 font-serif font-black text-4xl tracking-tight mt-1">AED <span class="text-red-600">10,000</span></span>
+                            </div>
+                            <div class="bg-white rounded-xl p-5 border border-gray-100 flex items-center justify-between shadow-sm">
+                                <span class="text-brand-700 text-sm font-medium">Small Biz Relief Applicable?</span>
+                                <span class="text-brand-900 font-bold bg-[#f4eee6] px-3 py-1.5 rounded-lg text-xs shadow-sm">Yes. Fine still applies.</span>
+                            </div>
+                        </div>
+
+                        <!-- Card Footer -->
+                        <div class="p-6 bg-brand-900 flex items-center justify-between relative z-10 rounded-b-[2rem]">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-brand-gold/10 flex items-center justify-center border border-brand-gold/20 shadow-sm">
+                                    <i class="fas fa-shield-alt text-brand-gold text-sm"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-brand-gold text-xs font-bold tracking-widest uppercase">Secured by Waqt</span>
+                                    <span class="block text-gray-400 text-[10px] mt-0.5">Zero missed deadlines</span>
+                                </div>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center border border-[#128C7E]/30 group-hover:scale-110 transition-transform cursor-pointer shadow-[0_0_15px_rgba(37,211,102,0.3)]">
+                                <i class="fab fa-whatsapp text-white text-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <div class="bg-white py-6 overflow-hidden relative flex z-20 shadow-[0_0_40px_rgba(0,0,0,0.06)]">
+        <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+        
+        <div class="flex items-center w-max animate-marquee opacity-60">
+            <!-- Set 1 -->
+            <div class="flex items-center gap-16 px-8 whitespace-nowrap">
+                <span class="font-serif text-xl font-bold text-brand-900 tracking-wide uppercase">Dubai</span>
+                <span class="text-brand-gold">•</span>
+                <span class="font-serif text-xl font-bold text-brand-900 tracking-wide uppercase">Sharjah</span>
+                <span class="text-brand-gold">•</span>
+                <span class="font-serif text-xl font-bold text-brand-900 tracking-wide uppercase">Abu Dhabi</span>
+                <span class="text-brand-gold">•</span>
+                <span class="font-serif text-xl font-bold text-brand-900 tracking-wide uppercase">Ajman</span>
+                <span class="text-brand-gold">•</span>
+                <span class="font-serif text-xl font-bold text-brand-900 tracking-wide uppercase">Mainland</span>
+                <span class="text-brand-gold">•</span>
+                <span class="font-serif text-xl font-bold text-brand-900 tracking-wide uppercase">Freezones</span>
+                <span class="text-brand-gold">•</span>
+            </div>
+            <!-- Set 2 -->
+            <div class="flex items-center gap-16 px-8 whitespace-nowrap">
+                <span class="font-serif text-xl font-bold text-brand-900 tracking-wide uppercase">Dubai</span>
+                <span class="text-brand-gold">•</span>
+                <span class="font-serif text-xl font-bold text-brand-900 tracking-wide uppercase">Sharjah</span>
+                <span class="text-brand-gold">•</span>
+                <span class="font-serif text-xl font-bold text-brand-900 tracking-wide uppercase">Abu Dhabi</span>
+                <span class="text-brand-gold">•</span>
+                <span class="font-serif text-xl font-bold text-brand-900 tracking-wide uppercase">Ajman</span>
+                <span class="text-brand-gold">•</span>
+                <span class="font-serif text-xl font-bold text-brand-900 tracking-wide uppercase">Mainland</span>
+                <span class="text-brand-gold">•</span>
+                <span class="font-serif text-xl font-bold text-brand-900 tracking-wide uppercase">Freezones</span>
+                <span class="text-brand-gold">•</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Reality Section -->
+    <section id="reality" class="py-16 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-brand-gold font-bold tracking-widest uppercase text-sm mb-4">The New Reality</h2>
+                <h3 class="text-3xl md:text-5xl font-serif font-bold text-brand-900 mb-6 leading-tight">The landscape changed.<br/><span class="text-brand-500 italic">Your safety net didn't.</span></h3>
+                <p class="text-lg text-brand-700/80 leading-relaxed">
+                    With the UAE's recent tax penalty overhaul, free calendar apps and "remembering it yourself" are no longer enough to protect your business margins.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(250px,auto)]">
+                <!-- Visual Statistic Block -->
+                <div class="md:col-span-3 bg-white rounded-[2rem] p-8 md:p-10 border border-gray-100 shadow-bento reveal flex flex-col md:flex-row items-center justify-between text-center md:text-left glow-card-subtle">
+                    <div class="mb-4 md:mb-0">
+                        <p class="text-sm text-brand-500 font-bold tracking-widest uppercase mb-1">The Cost of Forgetting</p>
+                        <h4 class="text-3xl font-bold text-brand-900">1 Missed Deadline</h4>
+                    </div>
+                    <div class="hidden md:block text-gray-300 text-4xl">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="mt-4 md:mt-0">
+                        <p class="text-sm text-[#e12a36] font-bold tracking-widest uppercase mb-1">Automatic Penalty</p>
+                        <h4 class="text-3xl font-bold text-[#e12a36]">AED 10,000 Fine</h4>
+                    </div>
+                </div>
+
+                <div class="md:col-span-2 bg-white rounded-[2rem] p-8 md:p-10 border border-gray-100 shadow-bento reveal relative overflow-hidden glow-card-subtle">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-red-50 rounded-full blur-[80px] -mr-20 -mt-20"></div>
+                    <div class="relative z-10 h-full flex flex-col justify-center">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-xl shadow-sm">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <span class="text-[10px] font-bold text-gray-400 tracking-wider bg-gray-50 px-3 py-1 rounded-full border border-gray-100">SOURCE: CABINET DECISION 129</span>
+                        </div>
+                        <h4 class="text-2xl font-serif font-bold text-brand-900 mb-4">The AED 10,000 Trap</h4>
+                        <p class="text-brand-700/80 text-base leading-relaxed max-w-xl">
+                            Corporate tax late-registration carries a fixed AED 10,000 penalty. <strong>This applies even if you elect for Small Business Relief and owe zero tax.</strong> Missing the registration paperwork is all it takes.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-900 text-white rounded-[2rem] p-8 md:p-10 shadow-bento reveal reveal-delay-1 flex flex-col justify-center relative overflow-hidden glow-card-subtle">
+                    <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-brand-gold/20 rounded-full blur-[50px]"></div>
+                    <div class="relative z-10">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 bg-white/10 text-brand-gold rounded-full flex items-center justify-center text-xl backdrop-blur-sm border border-white/10">
+                                <i class="fas fa-file-invoice"></i>
+                            </div>
+                        </div>
+                        <h4 class="text-2xl font-serif font-bold mb-4">E-Invoicing is Here</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Voluntary in 2026, mandatory by 2027. You'll need an accredited provider. We prep your data so you're ready when the mandate hits.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 relative overflow-hidden">
+        <img src="background2.jpg" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover pointer-events-none z-0" onerror="this.src='https://placehold.co/1920x1080/ffffff/fdfcfb'">
+        <div class="absolute inset-0 bg-white/30 z-0 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 reveal text-center md:text-left">
+                <div class="max-w-2xl">
+                    <h2 class="text-brand-gold font-bold tracking-widest uppercase text-sm mb-4">Our Scope</h2>
+                    <h3 class="text-3xl md:text-5xl font-serif font-bold text-brand-900 leading-tight">Everything tracked.<br/>Nothing missed.</h3>
+                </div>
+                <div class="mt-6 md:mt-0">
+                    <a href="#book-call" class="text-brand-900 font-bold hover:text-brand-gold transition-colors flex items-center justify-center md:justify-start gap-2">
+                        Get your custom calendar <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Qualification Block -->
+            <div class="mb-16 grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
+                <div class="bg-green-50/80 backdrop-blur-sm border border-green-100 rounded-2xl p-6 glow-card-subtle">
+                    <h4 class="font-bold text-brand-900 mb-4 flex items-center gap-2"><i class="fas fa-check-circle text-green-600"></i> Perfect For</h4>
+                    <ul class="grid grid-cols-2 gap-3 text-sm text-brand-700 font-medium">
+                        <li>• Freelancers</li>
+                        <li>• E-commerce</li>
+                        <li>• Solo Consultants</li>
+                        <li>• Creative Agencies</li>
+                        <li>• Small Trading Cos.</li>
+                        <li>• Local Clinics/Shops</li>
+                    </ul>
+                </div>
+                <div class="bg-red-50/80 backdrop-blur-sm border border-red-100 rounded-2xl p-6 glow-card-subtle">
+                    <h4 class="font-bold text-brand-900 mb-4 flex items-center gap-2"><i class="fas fa-times-circle text-red-500"></i> Not For</h4>
+                    <ul class="space-y-3 text-sm text-brand-700 font-medium">
+                        <li>• Large corporations needing full HR/Visa support</li>
+                        <li>• Companies looking for complete accounting outsourcing</li>
+                        <li>• Businesses that need a PRO to log in and file for them</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12">
+                <div class="reveal group">
+                    <div class="w-full h-1 bg-gray-200/50 mb-8 rounded-full overflow-hidden">
+                        <div class="w-0 h-full bg-brand-gold group-hover:w-full transition-all duration-700 ease-out"></div>
+                    </div>
+                    <h4 class="text-2xl font-bold text-brand-900 mb-4">Corporate Tax</h4>
+                    <p class="text-brand-700/80 mb-4 font-medium">We monitor your specific registration windows based on your trade license issuance month, ensuring you file the Small Business Relief election on time.</p>
+                </div>
+                
+                <div class="reveal reveal-delay-1 group">
+                    <div class="w-full h-1 bg-gray-200/50 mb-8 rounded-full overflow-hidden">
+                        <div class="w-0 h-full bg-brand-gold group-hover:w-full transition-all duration-700 ease-out"></div>
+                    </div>
+                    <h4 class="text-2xl font-bold text-brand-900 mb-4">VAT Cycles</h4>
+                    <p class="text-brand-700/80 mb-4 font-medium">For registered businesses, we track your exact quarterly or monthly VAT return cycles, pinging you before your accountant asks for the invoices.</p>
+                </div>
+
+                <div class="reveal reveal-delay-2 group">
+                    <div class="w-full h-1 bg-gray-200/50 mb-8 rounded-full overflow-hidden">
+                        <div class="w-0 h-full bg-brand-gold group-hover:w-full transition-all duration-700 ease-out"></div>
+                    </div>
+                    <h4 class="text-2xl font-bold text-brand-900 mb-4">License & E-Invoicing</h4>
+                    <p class="text-brand-700/80 mb-4 font-medium">We track your mainland or freezone license expiration. Plus, we keep you updated on the impending 2026/2027 e-invoicing mandate requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works (The Process) -->
+    <section id="how-it-works" class="py-16 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                <div class="reveal">
+                    <h2 class="text-brand-gold font-bold tracking-widest uppercase text-sm mb-4">The Solution</h2>
+                    <h3 class="text-3xl md:text-5xl font-serif font-bold text-brand-900 mb-6 leading-tight">We manage the calendar.<br/>You manage the business.</h3>
+                    <p class="text-lg text-brand-700/80 mb-10 leading-relaxed">
+                        A lean, remote, WhatsApp-native accountability layer built exclusively for solo founders. Here is the exact timeline:
+                    </p>
+                    
+                    <div class="space-y-10 relative before:absolute before:inset-0 before:left-7 before:-ml-[1px] before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-200 before:to-transparent">
+                        
+                        <div class="relative flex items-start gap-6 group">
+                            <div class="flex-shrink-0 w-14 h-14 rounded-full bg-white border border-gray-200 text-brand-900 flex items-center justify-center font-bold text-xl shadow-md relative z-10 group-hover:bg-brand-gold group-hover:text-white group-hover:border-brand-gold transition-all duration-300">1</div>
+                            <div>
+                                <span class="text-xs font-bold tracking-wider text-brand-gold uppercase mb-1 block">Takes 10 Minutes</span>
+                                <h4 class="font-bold text-brand-900 text-xl mb-2">Custom Compliance Profile</h4>
+                                <p class="text-brand-700/80 text-base leading-relaxed font-medium">We analyze your trade license issuance, revenue tier, and structure to build your personalized tracking calendar.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="relative flex items-start gap-6 group">
+                            <div class="flex-shrink-0 w-14 h-14 rounded-full bg-white border border-gray-200 text-brand-900 flex items-center justify-center font-bold text-xl shadow-md relative z-10 group-hover:bg-brand-gold group-hover:text-white group-hover:border-brand-gold transition-all duration-300">2</div>
+                            <div>
+                                <span class="text-xs font-bold tracking-wider text-brand-gold uppercase mb-1 block">T-30 / 14 / 3 Days</span>
+                                <h4 class="font-bold text-brand-900 text-xl mb-2">Proactive WhatsApp Reminders</h4>
+                                <p class="text-brand-700/80 text-base leading-relaxed font-medium">Before any deadline hits, you receive Plain English messages explaining exactly what is due, directly to your phone.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="relative flex items-start gap-6 group">
+                            <div class="flex-shrink-0 w-14 h-14 rounded-full bg-white border border-gray-200 text-brand-900 flex items-center justify-center font-bold text-xl shadow-md relative z-10 group-hover:bg-brand-gold group-hover:text-white group-hover:border-brand-gold transition-all duration-300">3</div>
+                            <div>
+                                <span class="text-xs font-bold tracking-wider text-brand-gold uppercase mb-1 block">Ongoing</span>
+                                <h4 class="font-bold text-brand-900 text-xl mb-2">Document Prep Checklists</h4>
+                                <p class="text-brand-700/80 text-base leading-relaxed font-medium">We tell you exactly what to gather. When you go to your accountant, you are 100% prepared to file instantly.</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="relative reveal lg:pl-10 flex justify-center">
+                    <div class="absolute inset-0 bg-brand-gold/15 rounded-full blur-[100px] z-0"></div>
+                    
+                    <div class="relative bg-[#f0f2f5] w-[320px] sm:w-[350px] iphone-mockup overflow-hidden z-10 flex flex-col h-[650px] animate-float-delayed border-[6px] border-gray-900">
+                        <div class="iphone-notch"></div>
+                        
+                        <div class="bg-[#00a884] h-7 w-full z-20 flex justify-between items-end px-6 pb-1 text-[10px] text-white font-medium">
+                            <span>09:14</span>
+                            <div class="flex gap-1.5 items-center mb-0.5">
+                                <i class="fas fa-signal"></i>
+                                <i class="fas fa-wifi"></i>
+                                <div class="flex items-center gap-1"><span>67%</span><i class="fas fa-battery-three-quarters text-xs"></i></div>
+                            </div>
+                        </div>
+
+                        <div class="bg-[#00a884] px-4 py-3 flex items-center gap-3 shadow-sm z-20 relative">
+                            <i class="fas fa-chevron-left text-white text-lg"></i>
+                            <img src="logo.png" alt="Waqt" class="w-10 h-10 rounded-full bg-white object-cover shadow-sm border border-white/20 p-0.5" onerror="this.src='https://placehold.co/100x100/ffffff/0a0f18?text=W'">
+                            <div class="flex-1">
+                                <h5 class="font-bold text-white text-base leading-tight">Waqt</h5>
+                                <p class="text-xs text-white/90 font-medium">typing...</p>
+                            </div>
+                            <div class="flex gap-4 text-white text-lg">
+                                <i class="fas fa-video"></i>
+                                <i class="fas fa-phone"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="flex-1 overflow-y-auto p-4 space-y-4 bg-[url('https://www.transparenttextures.com/patterns/subtle-dots.png')] bg-[#efeae2] flex flex-col justify-end pb-6">
+                            
+                            <div class="flex justify-center my-2">
+                                <span class="bg-white/90 backdrop-blur text-gray-600 text-[11px] px-3 py-1 rounded-lg font-medium shadow-sm border border-gray-100">Today</span>
+                            </div>
+
+                            <div class="flex gap-2">
+                                <div class="bg-white rounded-2xl rounded-tl-none p-3 shadow-sm max-w-[85%] relative border border-gray-50">
+                                    <p class="text-[14px] text-gray-800 leading-snug">Hi! Quick heads up: Your Corporate Tax registration window closes in exactly 14 days (June 30th). 🗓️</p>
+                                    <div class="flex justify-end mt-1"><span class="text-[10px] text-gray-400 font-medium">09:15 AM</span></div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex gap-2">
+                                <div class="bg-white rounded-2xl rounded-tl-none p-3 shadow-sm max-w-[85%] relative border border-gray-50">
+                                    <p class="text-[14px] text-gray-800 leading-snug">Even with Small Business Relief, you <strong>must</strong> file the registration to avoid the automatic AED 10,000 fine. Have you sent the trade license to your auditor?</p>
+                                    <div class="flex justify-end mt-1"><span class="text-[10px] text-gray-400 font-medium">09:15 AM</span></div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex gap-2 justify-end mt-4">
+                                <div class="bg-[#d9fdd3] rounded-2xl rounded-tr-none p-3 shadow-sm max-w-[85%] border border-[#cff2c9]">
+                                    <p class="text-[14px] text-gray-800 leading-snug">I completely forgot about the zero-tax rule. Thank you! Sending the license to them now.</p>
+                                    <div class="flex justify-end items-center mt-1 gap-1">
+                                        <span class="text-[10px] text-gray-500 font-medium">09:30 AM</span>
+                                        <i class="fas fa-check-double text-[#53bdeb] text-[10px]"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-2 mt-2">
+                                <div class="bg-white rounded-2xl rounded-tl-none py-2 px-4 shadow-sm w-fit border border-gray-50 flex items-center gap-1">
+                                    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-[#f0f2f5] px-2 py-2 flex items-center gap-2 z-20 pb-4">
+                            <div class="text-gray-500 text-xl pl-2"><i class="fas fa-plus"></i></div>
+                            <div class="flex-1 bg-white rounded-full h-9 px-4 flex items-center border border-gray-200">
+                                <span class="text-gray-400 text-sm font-medium">Message</span>
+                            </div>
+                            <div class="w-9 h-9 bg-[#00a884] rounded-full flex items-center justify-center text-white text-sm shadow-sm">
+                                <i class="fas fa-microphone"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Origin Section (Why Us) -->
+    <section id="why-us" class="py-16 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-brand-900 rounded-[2.5rem] p-10 md:p-16 shadow-2xl reveal overflow-hidden relative glow-card-subtle">
+                <img src="background3.jpg" alt="Why Us Background" class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none" onerror="this.src='https://placehold.co/1200x800/141c2b/0a0f18'">
+                
+                <div class="absolute inset-0 opacity-[0.05] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay z-0 pointer-events-none"></div>
+                <div class="absolute -right-20 -top-20 w-96 h-96 bg-brand-gold/20 rounded-full blur-[100px] z-0 pointer-events-none"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+                    <div>
+                        <h2 class="text-brand-gold font-bold tracking-widest uppercase text-sm mb-4 drop-shadow-md">Radical Transparency</h2>
+                        <h3 class="text-3xl md:text-5xl font-serif font-bold text-white mb-6 leading-tight drop-shadow-md">Why trust a remote concierge?</h3>
+                        <div class="space-y-6 text-gray-300 leading-relaxed text-lg font-light drop-shadow-sm">
+                            <p>
+                                Most UAE PRO agencies have massive overhead—plush Dubai offices, layered management, and marketing teams. <strong class="text-white font-semibold">They pass those costs directly to you.</strong>
+                            </p>
+                            <p>
+                                Waqt is a deliberately lean, remote-first operation. By maintaining our hub in Gujarat (operating in your exact time zone), we strip away the bloat. That is why we can offer premium, dedicated 1-on-1 human tracking for a fraction of standard retainer fees.
+                            </p>
+                            <p class="font-medium text-brand-goldlight">
+                                You shouldn't blindly trust a website. That's why your first compliance check is completely free, with absolutely no payment info required.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="relative">
+                        <img src="image1.jpg" alt="Remote Team" class="rounded-3xl shadow-2xl w-full h-[450px] object-cover bg-brand-800 border-4 border-white/5" onerror="this.src='https://placehold.co/600x450/141c2b/ffffff?text=Remote+Efficiency'">
+                        
+                        <div class="absolute -bottom-8 -left-8 bg-brand-cream/95 backdrop-blur p-6 rounded-3xl shadow-xl border border-white/50 hidden md:block glow-card-luminous">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm">
+                                    <i class="fas fa-shield-alt text-brand-gold text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-brand-900">Advisory Only</p>
+                                    <p class="text-sm text-brand-700 font-medium">We advise. Your PRO files.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16 relative overflow-hidden">
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+                <h2 class="text-brand-gold font-bold tracking-widest uppercase text-sm mb-4">Transparent Pricing</h2>
+                <h3 class="text-3xl md:text-5xl font-serif font-bold text-brand-900 mb-6">A fraction of the cost of one fine.</h3>
+                <p class="text-lg text-brand-700/80 font-medium">Flat monthly retainers. No contracts. Cancel anytime.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto reveal items-stretch">
+                
+                <div class="bg-white/95 backdrop-blur-md rounded-[2.5rem] p-10 lg:p-12 border border-gray-200 shadow-bento relative flex flex-col group h-full glow-card-subtle">
+                    <div class="mb-8 border-b border-gray-100 pb-8">
+                        <h4 class="text-3xl font-serif font-bold text-brand-900 mb-2 transition-colors">Solo Tracker</h4>
+                        <p class="text-brand-gold font-bold text-xs uppercase tracking-wider mb-2">Best for Freelancers</p>
+                        <p class="text-brand-700/80 text-sm h-10 font-medium">Perfect for freelance-permit holders and entities with no VAT registration.</p>
+                        <div class="mt-6 flex items-baseline text-6xl font-extrabold text-brand-900 tracking-tight">
+                            <span class="text-2xl text-gray-400 font-medium mr-2">AED</span> 250
+                            <span class="ml-2 text-xl font-medium text-gray-400">/mo</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-5 mb-10 flex-1">
+                        <li class="flex items-start gap-4">
+                            <div class="w-6 h-6 rounded-full bg-brand-cream text-brand-gold flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm"><i class="fas fa-check text-xs"></i></div>
+                            <span class="text-brand-900 font-bold">Corporate Tax Deadline Tracking</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-6 h-6 rounded-full bg-brand-cream text-brand-gold flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm"><i class="fas fa-check text-xs"></i></div>
+                            <span class="text-brand-900 font-bold">Trade License Renewal Tracking</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-6 h-6 rounded-full bg-brand-cream text-brand-gold flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm"><i class="fas fa-check text-xs"></i></div>
+                            <span class="text-brand-900 font-bold">WhatsApp Reminders (T-30/14/3)</span>
+                        </li>
+                    </ul>
+                    <a href="#book-call" class="block w-full py-4 px-6 bg-white border-2 border-brand-900 rounded-full text-center font-bold text-brand-900 hover:bg-brand-900 hover:text-white transition-colors text-lg mt-auto shadow-sm">
+                        Book Intro Call
+                    </a>
+                </div>
+
+                <div class="bg-brand-900/95 backdrop-blur-md rounded-[2.5rem] p-10 lg:p-12 shadow-2xl relative flex flex-col border border-brand-800 h-full glow-card-subtle">
+                    <div class="absolute -top-5 left-1/2 -translate-x-1/2">
+                        <span class="bg-brand-gold text-brand-900 text-xs font-bold uppercase tracking-widest py-2.5 px-6 rounded-full shadow-lg border border-brand-goldlight">Most Popular</span>
+                    </div>
+                    <div class="mb-8 border-b border-white/10 pb-8 mt-2">
+                        <h4 class="text-3xl font-serif font-bold text-white mb-2">Small Business</h4>
+                        <p class="text-brand-gold font-bold text-xs uppercase tracking-wider mb-2">Best for Companies with VAT</p>
+                        <p class="text-gray-400 text-sm h-10 font-medium">For small trading/e-commerce companies managing VAT and CT.</p>
+                        <div class="mt-6 flex items-baseline text-6xl font-extrabold text-white tracking-tight">
+                            <span class="text-2xl text-gray-500 font-medium mr-2">AED</span> 500
+                            <span class="ml-2 text-xl font-medium text-gray-500">/mo</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-5 mb-10 flex-1">
+                        <li class="flex items-start gap-4">
+                            <div class="w-6 h-6 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center flex-shrink-0 mt-0.5"><i class="fas fa-check text-xs"></i></div>
+                            <span class="text-gray-300 font-medium">Everything in Solo Tracker</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-6 h-6 rounded-full bg-brand-gold text-brand-900 flex items-center justify-center flex-shrink-0 mt-0.5"><i class="fas fa-check text-xs"></i></div>
+                            <span class="text-white font-bold">VAT Return Cycle Tracking</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-6 h-6 rounded-full bg-brand-gold text-brand-900 flex items-center justify-center flex-shrink-0 mt-0.5"><i class="fas fa-check text-xs"></i></div>
+                            <span class="text-white font-bold">E-Invoicing Readiness Updates</span>
+                        </li>
+                    </ul>
+                    <a href="#book-call" class="block w-full py-4 px-6 bg-brand-gold rounded-full text-center font-bold text-brand-900 shadow-gold-glow hover:shadow-gold-glow-hover transition-all hover:scale-[1.02] text-lg mt-auto">
+                        Book Intro Call
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-brand-gold font-bold tracking-widest uppercase text-sm mb-4">Clear Answers</h2>
+                <h3 class="text-3xl md:text-5xl font-serif font-bold text-brand-900">Frequently Asked Questions</h3>
+            </div>
+
+            <div class="space-y-4 reveal">
+                <div class="faq-item border border-gray-200/80 rounded-2xl bg-white/95 backdrop-blur-sm shadow-sm overflow-hidden glow-card-subtle">
+                    <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-bold text-brand-900 text-lg">Do you replace my accountant or PRO?</span>
+                        <i class="fas fa-chevron-down text-gray-400 faq-icon transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-8 bg-white/95">
+                        <p class="text-brand-700/90 leading-relaxed text-base font-medium">
+                            No. We make their job easier. We are an accountability layer. You remain responsible for actual filings via your licensed UAE auditor or PRO. We just make sure you hand them the right documents exactly when they need them.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item border border-gray-200/80 rounded-2xl bg-white/95 backdrop-blur-sm shadow-sm overflow-hidden glow-card-subtle">
+                    <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-bold text-brand-900 text-lg">Will you log into EmaraTax and file for me?</span>
+                        <i class="fas fa-chevron-down text-gray-400 faq-icon transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-8 bg-white/95">
+                        <p class="text-brand-700/90 leading-relaxed text-base font-medium">
+                            No. Submitting to government portals on a client's behalf requires specific regulatory licensing. We track, we remind, and we prepare you to file securely yourself or via your accountant.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item border border-gray-200/80 rounded-2xl bg-white/95 backdrop-blur-sm shadow-sm overflow-hidden glow-card-subtle">
+                    <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-bold text-brand-900 text-lg">What happens if regulations change?</span>
+                        <i class="fas fa-chevron-down text-gray-400 faq-icon transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-8 bg-white/95">
+                        <p class="text-brand-700/90 leading-relaxed text-base font-medium">
+                            That is exactly what you are paying us for. When the FTA overhauls penalties or announces e-invoicing mandates, we translate those announcements into plain language and update your calendar.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item border border-gray-200/80 rounded-2xl bg-white/95 backdrop-blur-sm shadow-sm overflow-hidden glow-card-subtle">
+                    <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-bold text-brand-900 text-lg">How fast do replies come? Can I message anytime?</span>
+                        <i class="fas fa-chevron-down text-gray-400 faq-icon transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-8 bg-white/95">
+                        <p class="text-brand-700/90 leading-relaxed text-base font-medium">
+                            We operate in the UAE time zone (GST). Messages sent during business hours are typically answered within minutes. Because we run a dedicated human concierge desk, you are never talking to a bot.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section / Calendly Embed -->
+    <section id="book-call" class="py-[4rem] relative overflow-hidden">
+        
+        <img src="background4.jpg" alt="Book Call Background" class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none" onerror="this.src='https://placehold.co/1920x1080/141c2b/0a0f18'">
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal w-full">
+            
+            <h2 class="text-4xl md:text-6xl font-serif font-bold text-white mb-6 leading-tight drop-shadow-md">Let's do a free <br/> <span class="italic text-brand-gold font-light">"Will I get fined?"</span> check.</h2>
+            <p class="text-lg text-gray-100 mb-10 max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-md">
+                Jump on a quick 10-minute discovery call. No hard sales pitch. We'll look at your license and tell you exactly what deadlines you are exposed to right now.
+            </p>
+            
+            <div class="bg-white rounded-3xl border border-gray-100 overflow-hidden mx-auto max-w-4xl min-h-[700px] relative glow-card-luminous">
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-gray-400 z-0">
+                    <i class="fas fa-circle-notch fa-spin text-3xl mb-4 text-brand-gold"></i>
+                    <p class="text-sm font-medium">Loading Calendar...</p>
+                </div>
+                
+                <div class="calendly-inline-widget relative z-10" data-url="https://calendly.com/amaan101-shaikh/book-demo?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            </div>
+            
+            <div class="mt-8 flex flex-col items-center">
+                <div class="flex -space-x-2 mb-3">
+                    <img class="w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm" src="https://placehold.co/100x100/e2e8f0/64748b?text=1" alt="User">
+                    <img class="w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm" src="https://placehold.co/100x100/cbd5e1/475569?text=2" alt="User">
+                    <img class="w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm" src="https://placehold.co/100x100/94a3b8/334155?text=3" alt="User">
+                </div>
+                <p class="text-xs text-white drop-shadow-md font-bold uppercase tracking-wider">Currently onboarding founding customers</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-900 pt-20 pb-10 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                
+                <div class="md:col-span-5">
+                    <img src="logo2.png" alt="Waqt Logo" class="h-10 md:h-12 w-auto object-contain mb-6" onerror="this.src='https://placehold.co/120x40/faeede/0a0f18?text=WAQT'">
+                    <p class="text-gray-400 text-sm mb-8 leading-relaxed max-w-md font-medium">
+                        The premium WhatsApp compliance concierge protecting UAE small businesses from regulatory fines. We manage the calendar, you manage the business.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://linkedin.com/company/waqt-uae/" target="_blank" aria-label="LinkedIn" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:bg-[#0077b5] hover:text-white hover:border-[#0077b5] transition-all"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/918128564631" target="_blank" aria-label="WhatsApp" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:bg-[#25D366] hover:text-white hover:border-[#25D366] transition-all"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:amaan101.shaikh@gmail.com" aria-label="Email" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:bg-brand-gold hover:text-brand-900 transition-all"><i class="fas fa-envelope"></i></a>
+                        <a href="tel:+918123564631" aria-label="Phone" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:bg-brand-gold hover:text-brand-900 transition-all"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-2 md:col-start-7">
+                    <h5 class="text-white font-bold mb-6 tracking-wide uppercase text-sm">Navigation</h5>
+                    <ul class="space-y-4 text-sm font-medium">
+                        <li><a href="#reality" class="text-gray-400 hover:text-brand-gold transition-colors">The Reality</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-brand-gold transition-colors">Services</a></li>
+                        <li><a href="#pricing" class="text-gray-400 hover:text-brand-gold transition-colors">Pricing Plans</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-brand-gold transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4">
+                    <h5 class="text-white font-bold mb-6 tracking-wide uppercase text-sm">Important Disclaimer</h5>
+                    <div class="p-5 bg-white/5 rounded-2xl border border-white/10">
+                        <p class="text-gray-400 text-xs leading-relaxed font-medium">
+                            This service provides deadline tracking and document preparation support based on publicly available UAE regulations (FTA/MoF). It does not constitute legal, tax, or financial advice, and does not replace a licensed UAE auditor, tax agent, or PRO.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+                <p class="text-gray-500 text-sm font-medium w-full md:w-auto">
+                    Operated by Nexcore Agency | &copy; 2026 WAQT. All rights reserved.
+                </p>
+                <div class="flex justify-center md:justify-start space-x-6 text-sm text-gray-500 font-medium w-full md:w-auto">
+                    <a href="#" onclick="openModal('privacy-modal'); return false;" class="hover:text-brand-gold transition-colors">Privacy Policy</a>
+                    <a href="#" onclick="openModal('terms-modal'); return false;" class="hover:text-brand-gold transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Legal Modals -->
+
+    <!-- Terms of Service Modal -->
+    <div id="terms-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6">
+        <div class="absolute inset-0 bg-brand-900/80 backdrop-blur-sm" onclick="closeModal('terms-modal')"></div>
+        <div class="relative bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl modal-scroll">
+            
+            <div class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-gray-100 p-6 flex justify-between items-center z-10">
+                <h2 class="font-serif text-2xl font-bold text-brand-900">Terms of Service</h2>
+                <button onclick="closeModal('terms-modal')" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-brand-gold hover:text-white transition-colors">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="p-8 md:p-10 text-brand-700 leading-relaxed font-medium">
+                <p class="mb-6 text-sm text-gray-500">Effective Date: July 29, 2026</p>
+                
+                <p class="mb-6">Welcome to WAQT. These Terms of Service ("Terms") govern your access to and use of the WAQT website (waqt.ae) and our compliance tracking and reminder services. WAQT is operated by Nexcore Agency ("we," "us," or "our").</p>
+                
+                <p class="mb-8">By accessing our website or subscribing to our services, you ("Client," "you," or "your") agree to be bound by these Terms. If you do not agree to these Terms, please do not use our services.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">1. Definitions</h3>
+                <ul class="list-disc pl-6 mb-6 space-y-2">
+                    <li><strong>"Service"</strong> or <strong>"Services"</strong> refers to the compliance deadline tracking, personalized calendars, document preparation checklists, and WhatsApp reminders provided by WAQT.</li>
+                    <li><strong>"Platform"</strong> refers to the waqt.ae website and our communication channels.</li>
+                </ul>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">2. Eligibility</h3>
+                <p class="mb-6">To use our Services, you must be a registered business entity or a licensed freelancer operating in the United Arab Emirates (UAE). By subscribing, you represent that you have the authority to bind your business to these Terms.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">3. Nature of Services</h3>
+                <p class="font-bold mb-2">What WAQT Does:</p>
+                <p class="mb-4">WAQT acts exclusively as an informational accountability layer. We analyze publicly available UAE regulations to build personalized compliance calendars, monitor deadlines for Corporate Tax, VAT, and Trade License renewals, and send proactive reminders and document preparation checklists via WhatsApp and email.</p>
+                <p class="font-bold mb-2">What WAQT Does Not Do:</p>
+                <p class="mb-6">WAQT is not a law firm, a tax consultancy, a chartered accounting firm, a licensed UAE tax agent, a filing agency, or a Public Relations Officer (PRO). We do not provide legal, tax, or financial advice. We do not submit filings, register companies, act as your appointed corporate representative, or access government portals (such as EmaraTax) on your behalf.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">4. Client Responsibilities</h3>
+                <p class="mb-6">You remain solely responsible for the timely and accurate filing of all required government documentation and taxes. It is your responsibility to act on the reminders provided by WAQT and to consult with licensed professionals (such as a UAE-registered auditor, tax agent, or PRO) to execute your filings.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">5. Accuracy of Information</h3>
+                <p class="mb-6">Our ability to provide accurate deadlines depends entirely on the information you provide us (e.g., trade license issuance date, revenue tier, business structure). You agree to provide current, complete, and accurate information and to update us promptly if your business details change. We are not liable for any missed deadlines resulting from inaccurate or outdated information provided by you.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">6. Third-Party Platforms</h3>
+                <p class="mb-6">Our Services rely on third-party platforms, including WhatsApp for communications, Calendly for booking, and external payment gateways for subscription processing. We do not control these platforms and are not responsible for their availability, uptime, or security. Your use of these platforms is subject to their respective terms of service and privacy policies.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">7. Communications</h3>
+                <p class="mb-6">By using our Services, you consent to receive communications from us via WhatsApp and email. You acknowledge that WhatsApp and email are our primary methods of delivering the Service, and you agree to maintain active accounts to receive our alerts.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">8. Subscriptions and Payments</h3>
+                <ul class="list-disc pl-6 mb-6 space-y-2">
+                    <li><strong>Billing:</strong> Services are billed on a monthly subscription basis.</li>
+                    <li><strong>Payments:</strong> You agree to provide a valid payment method. By subscribing, you authorize us to charge your payment method on a recurring basis.</li>
+                    <li><strong>Refund Policy:</strong> All payments are non-refundable, except where required by applicable law.</li>
+                    <li><strong>Cancellations:</strong> You may cancel your subscription at any time. Cancellation will take effect at the end of your current billing cycle, and you will continue to have access to the Service until that time.</li>
+                </ul>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">9. Intellectual Property</h3>
+                <p class="mb-6">All content on the WAQT website, including text, graphics, logos, and service design, is the property of Nexcore Agency or its licensors and is protected by intellectual property laws. You are granted a limited, non-exclusive license to use our Services for your internal business purposes.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">10. Acceptable Use</h3>
+                <p class="mb-6">You agree not to misuse our Services. This includes, but is not limited to: reproducing or reselling our Services, using our Services for illegal purposes, or transmitting malicious code through our communication channels.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">11. Disclaimer of Warranties</h3>
+                <p class="mb-6">Our Services are provided on an "as is" and "as available" basis. While we strive to maintain accurate and up-to-date information based on publicly available UAE regulations, we expressly disclaim all warranties of any kind, whether express or implied. We do not guarantee that our Services will result in compliance with UAE law or prevent you from incurring fines, penalties, or legal action.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">12. Limitation of Liability</h3>
+                <p class="mb-6">To the maximum extent permitted by applicable law, Nexcore Agency and WAQT shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits, revenues, data, or business opportunities, arising from your use of the Services or any missed deadlines, fines, or penalties levied against your business. Our total liability for any claims arising under these Terms shall be limited to the amount you paid us for the Services in the three (3) months preceding the claim.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">13. Indemnification</h3>
+                <p class="mb-6">You agree to indemnify and hold harmless Nexcore Agency, its officers, employees, and agents from any claims, damages, liabilities, fines, penalties, or expenses (including reasonable attorneys' fees) arising out of your business operations, your failure to comply with UAE regulations, or your violation of these Terms.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">14. Force Majeure</h3>
+                <p class="mb-6">We shall not be held liable for any failure or delay in performing our obligations where such failure or delay is caused by events beyond our reasonable control, including internet outages, telecommunications failures, government actions, or natural disasters.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">15. Governing Law and Dispute Resolution</h3>
+                <p class="mb-6">These Terms shall be governed by and construed in accordance with the laws of Gujarat, India, without regard to its conflict of law principles. Any dispute arising out of or relating to these Terms shall be resolved exclusively in the competent courts located in Gujarat, India.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">16. Severability and Entire Agreement</h3>
+                <p class="mb-6">If any provision of these Terms is found to be unenforceable, the remaining provisions will remain in full force and effect. These Terms constitute the entire agreement between you and Nexcore Agency regarding WAQT and supersede any prior agreements.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">17. Changes to Terms</h3>
+                <p class="mb-6">We reserve the right to modify these Terms at any time. We will notify you of any material changes via email or WhatsApp. Your continued use of the Services after such changes take effect constitutes your acceptance of the revised Terms.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">18. Contact Information</h3>
+                <p class="mb-12">If you have any questions about these Terms, please contact us at:<br/>
+                Email: amaan101.shaikh@gmail.com<br/>
+                WhatsApp: +91 81285 64631</p>
+
+                <hr class="border-gray-200 mb-12">
+
+                <h2 class="font-serif text-3xl font-bold text-brand-900 mb-6">Website Disclaimer</h2>
+                <p class="mb-6">Please read this disclaimer carefully before using WAQT. WAQT (operated by Nexcore Agency) provides compliance deadline tracking, personalized calendars, and document preparation guidance tailored to businesses operating in the United Arab Emirates.</p>
+                <p class="mb-4">By using our website and services, you acknowledge and agree to the following:</p>
+                
+                <ul class="list-disc pl-6 mb-8 space-y-3">
+                    <li><strong>Not a Law Firm:</strong> WAQT is not a law firm and does not provide legal advice.</li>
+                    <li><strong>Not an Accounting Firm or PRO:</strong> WAQT is not a tax consultancy, a chartered accounting firm, a licensed UAE tax agent, or a Public Relations Officer (PRO) agency.</li>
+                    <li><strong>No Filing Services:</strong> We do not submit tax returns, register businesses, renew licenses, or file documents with any government portal (such as the Federal Tax Authority or EmaraTax) on your behalf.</li>
+                    <li><strong>Informational Purposes Only:</strong> Our service translates publicly available UAE regulatory schedules into customized reminders. The information provided is for educational and organizational purposes only and should not be relied upon as a substitute for professional legal, tax, or financial advice.</li>
+                    <li><strong>No Guarantee Against Fines:</strong> While our goal is to help you stay organized, WAQT does not guarantee that using our service will prevent you from incurring fines, penalties, or legal consequences.</li>
+                    <li><strong>Your Responsibility:</strong> You, the business owner, remain solely and legally responsible for ensuring that all UAE regulatory filings, tax payments, and license renewals are completed accurately and on time. We strongly advise you to consult with your own licensed UAE auditor, tax agent, or PRO to verify deadlines and execute your filings.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6">
+        <div class="absolute inset-0 bg-brand-900/80 backdrop-blur-sm" onclick="closeModal('privacy-modal')"></div>
+        <div class="relative bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl modal-scroll">
+            
+            <div class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-gray-100 p-6 flex justify-between items-center z-10">
+                <h2 class="font-serif text-2xl font-bold text-brand-900">Privacy Policy</h2>
+                <button onclick="closeModal('privacy-modal')" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-brand-gold hover:text-white transition-colors">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="p-8 md:p-10 text-brand-700 leading-relaxed font-medium">
+                <p class="mb-6 text-sm text-gray-500">Effective Date: July 29, 2026</p>
+                
+                <p class="mb-4">At WAQT (operated by Nexcore Agency), we build compliance tracking and reminder tools for UAE businesses. Because our service relies on understanding your business deadlines, we need to collect certain information from you.</p>
+                <p class="mb-4">This Privacy Policy explains what information we collect, why we collect it, who we share it with, and the rights you have regarding your personal and business data. We have written this in plain English to ensure it is clear, transparent, and easy to understand.</p>
+                <p class="mb-8">By using the WAQT website (waqt.ae) and our communication channels (including Calendly, WhatsApp, and Email), you agree to the collection and use of your information as outlined in this policy.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">1. The Information We Collect</h3>
+                <p class="mb-4">We only collect the information necessary to provide our compliance tracking and reminder services. This falls into two categories: information you provide directly to us, and information we collect automatically.</p>
+                
+                <p class="font-bold mb-2">A. Information You Provide Directly</p>
+                <ul class="list-disc pl-6 mb-4 space-y-2">
+                    <li><strong>Contact Information:</strong> Your name, email address, and WhatsApp phone number.</li>
+                    <li><strong>Business Information:</strong> Information required to accurately calculate your regulatory deadlines, including your trade license issuance date, license type (free zone or mainland), revenue tier, and business structure.</li>
+                    <li><strong>Communication Data:</strong> Information you share with us during discovery calls, via email, or through our WhatsApp concierge service.</li>
+                    <li><strong>Calendly Data:</strong> When you book a discovery call, you provide your name, email, and meeting preferences through our Calendly integration.</li>
+                </ul>
+
+                <p class="font-bold mb-2">B. Information We Collect Automatically</p>
+                <p class="mb-2">When you visit waqt.ae, we automatically collect certain technical data to ensure our website functions securely and efficiently:</p>
+                <ul class="list-disc pl-6 mb-6 space-y-2">
+                    <li><strong>Device Information:</strong> The type of device, operating system, and browser you are using.</li>
+                    <li><strong>IP Addresses:</strong> We collect your IP address to understand regional usage and for basic security monitoring.</li>
+                    <li><strong>Website Analytics & Cookies:</strong> We use cookies and basic analytics tools to track how visitors navigate our website. For detailed information on our use of cookies, please see our Cookie Policy below.</li>
+                </ul>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">2. How We Use Your Data</h3>
+                <p class="mb-4">We use the data we collect exclusively to operate WAQT and provide you with a premium concierge experience. Specifically, we use your information to:</p>
+                <ul class="list-disc pl-6 mb-6 space-y-2">
+                    <li>Build, maintain, and update your personalized compliance calendar.</li>
+                    <li>Send proactive deadline reminders and document preparation checklists directly to your WhatsApp and email.</li>
+                    <li>Translate complex UAE Federal Tax Authority (FTA) and Ministry of Finance (MoF) notices into plain English tailored to your business profile.</li>
+                    <li>Process your subscription payments securely.</li>
+                    <li>Improve our website, scheduling flow, and customer support.</li>
+                </ul>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">3. Third-Party Providers</h3>
+                <p class="mb-4">We are in the business of compliance tracking, not data brokering. We do not sell, rent, or trade your personal or business information.</p>
+                <p class="mb-4">To operate efficiently as a remote-first startup, we share information only with trusted third-party infrastructure providers who are essential to delivering our Service:</p>
+                <ul class="list-disc pl-6 mb-4 space-y-2">
+                    <li><strong>WhatsApp (Meta):</strong> To send and receive encrypted messages and reminders.</li>
+                    <li><strong>Calendly:</strong> To manage our booking and calendar scheduling.</li>
+                    <li><strong>Payment Processors:</strong> To handle subscription billing securely (we do not store your full credit card details on our own servers).</li>
+                    <li><strong>Cloud Hosting & Workspace:</strong> To securely store your business profile and operate our internal tracking sheets.</li>
+                </ul>
+                <p class="mb-6">These providers are authorized to use your information only as necessary to provide their specific services to us.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">4. International Data Transfers</h3>
+                <p class="mb-6">WAQT is a remote-first service operated by Nexcore Agency, based in Gujarat, India. By using our Service, you acknowledge and understand that your contact and business information will be transferred to, stored, and processed in India. We apply consistent security standards to protect your data, regardless of where it is processed.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">5. Data Security</h3>
+                <p class="mb-6">We take data security seriously. We use commercially reasonable, industry-standard administrative and technical safeguards to protect your personal and business information from unauthorized access, loss, misuse, or alteration. However, no method of transmission over the internet or electronic storage is 100% secure. While we strive to protect your data, we cannot guarantee its absolute security.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">6. Data Retention</h3>
+                <p class="mb-4">We retain your information only for as long as your subscription is active, or as long as necessary to fulfill the purposes outlined in this Privacy Policy.</p>
+                <p class="mb-6">If you cancel your WAQT subscription, we will retain your data for a brief administrative grace period to allow for easy reactivation. After this period, we will securely delete or anonymize your identifying information, unless we are legally required to retain it for tax, legal, or accounting purposes.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">7. Your User Rights & Data Deletion Requests</h3>
+                <p class="mb-4">You have control over your data. Subject to applicable laws, you have the right to:</p>
+                <ul class="list-disc pl-6 mb-4 space-y-2">
+                    <li><strong>Access:</strong> Request a copy of the personal and business data we hold about you.</li>
+                    <li><strong>Correct:</strong> Request that we update or correct any inaccurate information (such as a renewed trade license date).</li>
+                    <li><strong>Delete:</strong> Request the complete deletion of your data from our active systems.</li>
+                </ul>
+                <p class="font-bold mb-2">How to Request Deletion:</p>
+                <p class="mb-6">To request the deletion of your data, simply email us at amaan101.shaikh@gmail.com or message us via your dedicated WhatsApp thread. We will process your deletion request within 30 days. Please note that requesting deletion will result in the termination of your WAQT tracking service.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">8. Children's Privacy</h3>
+                <p class="mb-6">WAQT is a business-to-business (B2B) compliance service. Our website and services are intended exclusively for business owners, founders, and licensed professionals. We do not knowingly collect or solicit personal information from anyone under the age of 18. If we learn that we have collected personal information from a minor, we will delete that information immediately.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">9. Changes to this Policy</h3>
+                <p class="mb-6">As our startup grows and regulations evolve, we may need to update this Privacy Policy. If we make material changes to how we handle your data, we will notify active clients directly via WhatsApp or email before the changes take effect. We will also update the "Effective Date" at the top of this page. Your continued use of WAQT after any changes indicates your acceptance of the updated policy.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">10. Contact Information</h3>
+                <p class="mb-12">If you have any questions, concerns, or requests regarding this Privacy Policy or how we handle your data, please contact us:<br/>
+                <strong>WAQT (Operated by Nexcore Agency)</strong><br/>
+                Email: amaan101.shaikh@gmail.com<br/>
+                WhatsApp: +91 81285 64631<br/>
+                Location: Umbergaon 396170, Dist-Valsad, Gujarat, India</p>
+
+                <hr class="border-gray-200 mb-12">
+
+                <h2 class="font-serif text-3xl font-bold text-brand-900 mb-6">Cookie Policy</h2>
+                <p class="mb-6 text-sm text-gray-500">Effective Date: July 29, 2026</p>
+                <p class="mb-8">This Cookie Policy explains how WAQT (operated by Nexcore Agency) uses cookies and similar technologies on waqt.ae.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">1. What Are Cookies?</h3>
+                <p class="mb-6">Cookies are small text files placed on your device by your browser when you visit a website. They are widely used to make websites work efficiently and to provide statistical information to the website owners.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">2. Types of Cookies We Use</h3>
+                <ul class="list-disc pl-6 mb-6 space-y-3">
+                    <li><strong>Essential Cookies:</strong> These cookies are necessary for the website to function properly. They enable core functionalities such as security, network management, and accessibility. You cannot opt out of these cookies.</li>
+                    <li><strong>Functional Cookies:</strong> These allow our website to remember choices you make (such as your preferred language or region) and provide enhanced, more personalized features.</li>
+                    <li><strong>Analytics Cookies:</strong> We use analytics tools to understand how visitors interact with our website. These cookies collect information anonymously, helping us improve our website's layout, content, and user experience.</li>
+                </ul>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">3. Third-Party Cookies</h3>
+                <p class="mb-6">Some of our third-party integrations, such as Calendly (for scheduling) and our payment processors, may set their own cookies when you interact with their widgets on our site. We do not control the cookies set by these third-party services.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">4. Cookie Preferences and Browser Controls</h3>
+                <p class="mb-4">You have the right to decide whether to accept or reject cookies. You can set or amend your web browser controls to accept or refuse cookies. If you choose to reject cookies, you may still use our website, though your access to some functionality and areas may be restricted.</p>
+                <p class="mb-6">To learn how to manage cookies, please visit the help section of your specific web browser.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">5. Updates to This Policy</h3>
+                <p class="mb-6">We may update this Cookie Policy from time to time to reflect changes in the cookies we use or for other operational, legal, or regulatory reasons. Please revisit this page regularly to stay informed.</p>
+
+                <h3 class="text-xl font-bold text-brand-900 mt-8 mb-4 font-serif">6. Contact</h3>
+                <p class="mb-6">If you have questions about our use of cookies, please contact us at amaan101.shaikh@gmail.com.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Scroll Progress Bar Logic
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("scroll-progress").style.width = scrolled + "%";
+            
+            // Dynamic Header shadow
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-md');
+                nav.classList.remove('shadow-none');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.add('shadow-none');
+            }
+        });
+
+        // Mobile Menu Logic
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const icon = btn.querySelector('i');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            if(menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // FAQ Accordion Logic
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            document.querySelectorAll('.faq-item').forEach(faq => {
+                if(faq !== item && faq.classList.contains('active')) {
+                    faq.classList.remove('active');
+                }
+            });
+            item.classList.toggle('active');
+        }
+
+        // Scroll Reveal Animation 
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            const revealOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, revealOptions);
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+        });
+
+        // Active Nav Link ScrollSpy Logic
+        const sections = document.querySelectorAll('section[id]');
+        const navLinksToUpdate = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinksToUpdate.forEach(link => {
+                link.classList.remove('text-brand-gold');
+                link.classList.add('text-brand-900');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.remove('text-brand-900');
+                    link.classList.add('text-brand-gold');
+                }
+            });
+        });
+
+        // Modal Logic
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+            document.getElementById(id).classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+            document.getElementById(id).classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on Escape key press
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                ['terms-modal', 'privacy-modal'].forEach(id => {
+                    const modal = document.getElementById(id);
+                    if (!modal.classList.contains('hidden')) {
+                        closeModal(id);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
