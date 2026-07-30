@@ -10,7 +10,7 @@
     <meta property="og:title" content="Waqt | Dedicated UAE Compliance Concierge">
     <meta property="og:description" content="Never miss a tax deadline again. The WhatsApp-first compliance concierge for UAE small businesses.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://waqt.ae">
+    <meta property="og:url" content="https://waqt-5fk.pages.dev">
     
     <!-- Tab Logo (Favicon) -->
     <link rel="icon" type="image/png" href="logo.png">
@@ -270,7 +270,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative pt-[80px] pb-[60px] overflow-hidden">
+    <section class="relative pt-[80px] pb-[40px] overflow-hidden">
         <img src="background1.jpg" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover pointer-events-none z-0" onerror="this.src='https://placehold.co/1920x1080/0a0f18/141c2b'">
         <div class="absolute inset-0 bg-brand-900/30 z-0 pointer-events-none"></div>
         <div class="absolute top-1/4 left-1/4 w-[30rem] h-[30rem] bg-brand-gold/10 rounded-full blur-[120px] pointer-events-none animate-pulse-slow z-0"></div>
@@ -430,18 +430,39 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(250px,auto)]">
-                <!-- Visual Statistic Block -->
-                <div class="md:col-span-3 bg-white rounded-[2rem] p-8 md:p-10 border border-gray-100 shadow-bento reveal flex flex-col md:flex-row items-center justify-between text-center md:text-left glow-card-subtle">
-                    <div class="mb-4 md:mb-0">
-                        <p class="text-sm text-brand-500 font-bold tracking-widest uppercase mb-1">The Cost of Forgetting</p>
-                        <h4 class="text-3xl font-bold text-brand-900">1 Missed Deadline</h4>
+                
+                <!-- REFINED Visual Statistic Block -->
+                <div class="md:col-span-3 bg-white rounded-[2rem] p-8 md:p-12 border border-gray-100 shadow-bento reveal flex flex-col md:flex-row items-center justify-between text-center md:text-left glow-card-subtle relative overflow-hidden group">
+                    
+                    <!-- Subtle Hover Glow -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-brand-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                    
+                    <!-- Left Side: Trigger -->
+                    <div class="mb-8 md:mb-0 flex-1 relative z-10 flex flex-col items-center md:items-start">
+                        <p class="text-[11px] text-brand-500 font-bold tracking-widest uppercase mb-3 flex items-center gap-2">
+                            <i class="far fa-calendar-times text-brand-gold text-sm"></i> The Cost of Forgetting
+                        </p>
+                        <h4 class="text-3xl md:text-5xl font-serif font-bold text-brand-900 leading-tight">1 Missed Deadline</h4>
+                        <p class="text-brand-700/70 text-sm mt-3 font-medium max-w-[280px]">A single calendar lapse is all it takes to trigger immediate compliance action.</p>
                     </div>
-                    <div class="hidden md:block text-gray-300 text-4xl">
-                        <i class="fas fa-arrow-right"></i>
+                    
+                    <!-- Center: Elegant Connector -->
+                    <div class="hidden md:flex flex-1 items-center justify-center relative px-10 z-10">
+                        <div class="w-full flex items-center opacity-70 group-hover:opacity-100 transition-opacity duration-500">
+                            <div class="h-[1px] w-full bg-gradient-to-r from-gray-100 via-brand-gold/60 to-gray-100"></div>
+                            <div class="absolute left-1/2 -translate-x-1/2 w-12 h-12 bg-[#fdfcfb] border border-gray-100 rounded-full flex items-center justify-center shadow-sm text-brand-gold">
+                                <i class="fas fa-chevron-right text-sm"></i>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mt-4 md:mt-0">
-                        <p class="text-sm text-[#e12a36] font-bold tracking-widest uppercase mb-1">Automatic Penalty</p>
-                        <h4 class="text-3xl font-bold text-[#e12a36]">AED 10,000 Fine</h4>
+                    
+                    <!-- Right Side: Consequence -->
+                    <div class="mt-4 md:mt-0 flex-1 relative z-10 flex flex-col items-center md:items-end">
+                        <p class="text-[11px] text-[#e12a36] font-bold tracking-widest uppercase mb-3 flex items-center gap-2">
+                            Automatic Penalty <i class="fas fa-exclamation-circle"></i>
+                        </p>
+                        <h4 class="text-4xl md:text-5xl font-black text-[#e12a36] tracking-tight drop-shadow-sm">AED 10,000</h4>
+                        <p class="text-brand-900 font-bold text-[11px] uppercase tracking-widest mt-4 bg-gray-50 border border-gray-100 px-4 py-2 rounded-lg shadow-sm">Fixed FTA Fine</p>
                     </div>
                 </div>
 
