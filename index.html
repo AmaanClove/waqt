@@ -270,7 +270,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative pt-[80px] pb-[40px] overflow-hidden">
+    <section class="relative pt-[67px] pb-[33px] overflow-hidden">
         <img src="background1.jpg" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover pointer-events-none z-0" onerror="this.src='https://placehold.co/1920x1080/0a0f18/141c2b'">
         <div class="absolute inset-0 bg-brand-900/30 z-0 pointer-events-none"></div>
         <div class="absolute top-1/4 left-1/4 w-[30rem] h-[30rem] bg-brand-gold/10 rounded-full blur-[120px] pointer-events-none animate-pulse-slow z-0"></div>
@@ -304,8 +304,8 @@
                     </div>
                     
                     <!-- Official Disclaimer -->
-                    <p class="text-[11px] text-gray-400 mt-6 max-w-lg mx-auto lg:mx-0 font-medium leading-relaxed border-l-2 border-brand-500/50 pl-3">
-                        Waqt provides compliance reminders and deadline guidance. Government filings remain the responsibility of you or your licensed accountant. No payment info required to book.
+                    <p class="text-[11px] text-gray-400 mt-6 max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed border-l-2 border-brand-500/50 pl-3">
+                        WAQT provides compliance reminders and deadline tracking. Government filings, renewals, and payments remain the responsibility of you or your licensed accountant, tax agent, or PRO. No payment information is required to book an introductory call.
                     </p>
                 </div>
 
@@ -431,14 +431,14 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(250px,auto)]">
                 
-                <!-- REFINED Visual Statistic Block -->
+                <!-- REFINED Visual Statistic Block (Now Mobile Responsive) -->
                 <div class="md:col-span-3 bg-white rounded-[2rem] p-8 md:p-12 border border-gray-100 shadow-bento reveal flex flex-col md:flex-row items-center justify-between text-center md:text-left glow-card-subtle relative overflow-hidden group">
                     
                     <!-- Subtle Hover Glow -->
                     <div class="absolute inset-0 bg-gradient-to-r from-transparent via-brand-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
                     
                     <!-- Left Side: Trigger -->
-                    <div class="mb-8 md:mb-0 flex-1 relative z-10 flex flex-col items-center md:items-start">
+                    <div class="flex-1 relative z-10 flex flex-col items-center md:items-start w-full">
                         <p class="text-[11px] text-brand-500 font-bold tracking-widest uppercase mb-3 flex items-center gap-2">
                             <i class="far fa-calendar-times text-brand-gold text-sm"></i> The Cost of Forgetting
                         </p>
@@ -446,18 +446,22 @@
                         <p class="text-brand-700/70 text-sm mt-3 font-medium max-w-[280px]">A single calendar lapse is all it takes to trigger immediate compliance action.</p>
                     </div>
                     
-                    <!-- Center: Elegant Connector -->
-                    <div class="hidden md:flex flex-1 items-center justify-center relative px-10 z-10">
-                        <div class="w-full flex items-center opacity-70 group-hover:opacity-100 transition-opacity duration-500">
-                            <div class="h-[1px] w-full bg-gradient-to-r from-gray-100 via-brand-gold/60 to-gray-100"></div>
-                            <div class="absolute left-1/2 -translate-x-1/2 w-12 h-12 bg-[#fdfcfb] border border-gray-100 rounded-full flex items-center justify-center shadow-sm text-brand-gold">
-                                <i class="fas fa-chevron-right text-sm"></i>
+                    <!-- Center: Elegant Responsive Connector -->
+                    <div class="flex md:flex-1 items-center justify-center relative w-full py-8 md:py-0 md:px-10 z-10">
+                        <div class="flex items-center justify-center w-full h-full opacity-70 group-hover:opacity-100 transition-opacity duration-500">
+                            <!-- Line: Vertical on mobile, Horizontal on desktop -->
+                            <div class="w-[1px] h-16 bg-gradient-to-b from-gray-100 via-brand-gold/60 to-gray-100 md:h-[1px] md:w-full md:bg-gradient-to-r"></div>
+                            
+                            <!-- Arrow Circle -->
+                            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-[#fdfcfb] border border-gray-100 rounded-full flex items-center justify-center shadow-sm text-brand-gold">
+                                <i class="fas fa-chevron-down text-sm md:hidden"></i>
+                                <i class="fas fa-chevron-right text-sm hidden md:block"></i>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Right Side: Consequence -->
-                    <div class="mt-4 md:mt-0 flex-1 relative z-10 flex flex-col items-center md:items-end">
+                    <div class="flex-1 relative z-10 flex flex-col items-center md:items-end w-full">
                         <p class="text-[11px] text-[#e12a36] font-bold tracking-widest uppercase mb-3 flex items-center gap-2">
                             Automatic Penalty <i class="fas fa-exclamation-circle"></i>
                         </p>
@@ -738,75 +742,165 @@
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-16 relative overflow-hidden">
+    <!-- Pricing Section (Detailed Scopes) -->
+    <section id="pricing" class="py-16 relative overflow-hidden bg-[#fcfbfa]">
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-3xl mx-auto mb-20 reveal">
-                <h2 class="text-brand-gold font-bold tracking-widest uppercase text-sm mb-4">Transparent Pricing</h2>
-                <h3 class="text-3xl md:text-5xl font-serif font-bold text-brand-900 mb-6">A fraction of the cost of one fine.</h3>
-                <p class="text-lg text-brand-700/80 font-medium">Flat monthly retainers. No contracts. Cancel anytime.</p>
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-brand-gold font-bold tracking-widest uppercase text-sm mb-4">Scope of Service</h2>
+                <h3 class="text-3xl md:text-5xl font-serif font-bold text-brand-900 mb-6">Complete transparency on exactly what we track.</h3>
+                <p class="text-lg text-brand-700/80 font-medium">Flat monthly retainers. No hidden fees. Cancel anytime.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto reveal items-stretch">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto reveal items-stretch">
                 
-                <div class="bg-white/95 backdrop-blur-md rounded-[2.5rem] p-10 lg:p-12 border border-gray-200 shadow-bento relative flex flex-col group h-full glow-card-subtle">
-                    <div class="mb-8 border-b border-gray-100 pb-8">
-                        <h4 class="text-3xl font-serif font-bold text-brand-900 mb-2 transition-colors">Solo Tracker</h4>
-                        <p class="text-brand-gold font-bold text-xs uppercase tracking-wider mb-2">Best for Freelancers</p>
-                        <p class="text-brand-700/80 text-sm h-10 font-medium">Perfect for freelance-permit holders and entities with no VAT registration.</p>
-                        <div class="mt-6 flex items-baseline text-6xl font-extrabold text-brand-900 tracking-tight">
-                            <span class="text-2xl text-gray-400 font-medium mr-2">AED</span> 250
-                            <span class="ml-2 text-xl font-medium text-gray-400">/mo</span>
+                <!-- Solo Tracker Card -->
+                <div class="bg-white/95 backdrop-blur-md rounded-[2.5rem] p-8 lg:p-10 border border-gray-200 shadow-bento relative flex flex-col group h-full glow-card-subtle">
+                    
+                    <div class="mb-6 border-b border-gray-100 pb-6 flex flex-col items-center text-center">
+                        <div class="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-brand-900 text-xl mb-4 border border-gray-100 shadow-sm"><i class="fas fa-user-tie"></i></div>
+                        <h4 class="text-3xl font-serif font-bold text-brand-900 mb-2">Solo Tracker</h4>
+                        <div class="mt-4 flex items-baseline text-5xl font-extrabold text-brand-900 tracking-tight">
+                            <span class="text-xl text-gray-400 font-medium mr-2">AED</span> 250
+                            <span class="ml-2 text-lg font-medium text-gray-400">/mo</span>
                         </div>
                     </div>
-                    <ul class="space-y-5 mb-10 flex-1">
-                        <li class="flex items-start gap-4">
-                            <div class="w-6 h-6 rounded-full bg-brand-cream text-brand-gold flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm"><i class="fas fa-check text-xs"></i></div>
-                            <span class="text-brand-900 font-bold">Corporate Tax Deadline Tracking</span>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-6 h-6 rounded-full bg-brand-cream text-brand-gold flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm"><i class="fas fa-check text-xs"></i></div>
-                            <span class="text-brand-900 font-bold">Trade License Renewal Tracking</span>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-6 h-6 rounded-full bg-brand-cream text-brand-gold flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm"><i class="fas fa-check text-xs"></i></div>
-                            <span class="text-brand-900 font-bold">WhatsApp Reminders (T-30/14/3)</span>
-                        </li>
-                    </ul>
-                    <a href="#book-call" class="block w-full py-4 px-6 bg-white border-2 border-brand-900 rounded-full text-center font-bold text-brand-900 hover:bg-brand-900 hover:text-white transition-colors text-lg mt-auto shadow-sm">
+
+                    <div class="space-y-8 flex-1">
+                        <!-- Target Customers -->
+                        <div>
+                            <h5 class="text-xs font-bold text-brand-500 uppercase tracking-wider mb-3 flex items-center gap-2"><i class="fas fa-bullseye text-brand-gold"></i> Target Customers</h5>
+                            <p class="text-sm text-brand-900 font-medium leading-relaxed bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                Perfect for Freelancers, Sole Proprietors, Individual Consultants, Creative Professionals, Professional License Holders, and Single-owner businesses with <strong>no VAT obligations</strong>.
+                            </p>
+                        </div>
+
+                        <!-- Compliance Coverage -->
+                        <div>
+                            <h5 class="text-xs font-bold text-brand-500 uppercase tracking-wider mb-3 flex items-center gap-2"><i class="fas fa-clipboard-list text-brand-gold"></i> 1. Compliance Coverage</h5>
+                            <ul class="space-y-4 text-sm text-brand-700">
+                                <li class="bg-white border border-gray-100 p-4 rounded-xl shadow-sm">
+                                    <strong class="text-brand-900 block mb-1">Trade License</strong>
+                                    <span class="text-gray-500 block text-xs mb-3">Track: Issue date, Expiry date, Renewal due date.</span>
+                                    <div class="bg-brand-cream/30 border border-brand-cream px-3 py-2 rounded-lg inline-block">
+                                        <span class="block text-[9px] font-bold text-brand-500 uppercase tracking-wider mb-0.5">Reminder Schedule</span>
+                                        <span class="text-xs font-bold text-brand-gold tracking-wide">30 • 14 • 7 • 3 • 1 Days • Due Date</span>
+                                    </div>
+                                </li>
+                                <li class="bg-white border border-gray-100 p-4 rounded-xl shadow-sm">
+                                    <strong class="text-brand-900 block mb-1">Corporate Tax</strong>
+                                    <span class="text-gray-500 block text-xs mb-3">Track: Registration Monitoring, Filing Deadline, Payment Deadline.</span>
+                                    <div class="bg-brand-cream/30 border border-brand-cream px-3 py-2 rounded-lg inline-block">
+                                        <span class="block text-[9px] font-bold text-brand-500 uppercase tracking-wider mb-0.5">Reminder Schedule</span>
+                                        <span class="text-xs font-bold text-brand-gold tracking-wide">45 • 30 • 14 • 7 • 3 Days • Due Date</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Service Features -->
+                        <div>
+                            <h5 class="text-xs font-bold text-brand-500 uppercase tracking-wider mb-3 flex items-center gap-2"><i class="fas fa-calendar-check text-brand-gold"></i> 2. Deliverables</h5>
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-brand-700 font-medium">
+                                <li class="flex items-center"><i class="fas fa-check text-brand-gold w-4"></i> WhatsApp reminders</li>
+                                <li class="flex items-center"><i class="fas fa-check text-brand-gold w-4"></i> Monthly Compliance Summary</li>
+                                <li class="flex items-center"><i class="fas fa-check text-brand-gold w-4"></i> Personalized calendar timeline</li>
+                                <li class="flex items-center"><i class="fas fa-check text-brand-gold w-4"></i> Relevant UAE Compliance Updates</li>
+                            </ul>
+                        </div>
+
+                        <!-- NOT Included -->
+                        <div class="bg-red-50/50 border border-red-100 p-5 rounded-xl mt-auto">
+                            <h5 class="text-xs font-bold text-red-500 uppercase tracking-wider mb-3 flex items-center gap-2"><i class="fas fa-ban"></i> Strictly Not Included</h5>
+                            <ul class="grid grid-cols-2 gap-y-2 gap-x-4 text-xs text-brand-700/80 font-medium">
+                                <li><i class="fas fa-times text-red-400 mr-1.5"></i> VAT Monitoring/Reminders</li>
+                                <li><i class="fas fa-times text-red-400 mr-1.5"></i> Accounting or Bookkeeping</li>
+                                <li><i class="fas fa-times text-red-400 mr-1.5"></i> Tax filing</li>
+                                <li><i class="fas fa-times text-red-400 mr-1.5"></i> Government submissions</li>
+                                <li><i class="fas fa-times text-red-400 mr-1.5"></i> Legal advice</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <a href="#book-call" class="mt-8 block w-full py-4 px-6 bg-white border-2 border-brand-900 rounded-full text-center font-bold text-brand-900 hover:bg-brand-900 hover:text-white transition-colors text-lg shadow-sm">
                         Book Intro Call
                     </a>
                 </div>
 
-                <div class="bg-brand-900/95 backdrop-blur-md rounded-[2.5rem] p-10 lg:p-12 shadow-2xl relative flex flex-col border border-brand-800 h-full glow-card-subtle">
-                    <div class="absolute -top-5 left-1/2 -translate-x-1/2">
-                        <span class="bg-brand-gold text-brand-900 text-xs font-bold uppercase tracking-widest py-2.5 px-6 rounded-full shadow-lg border border-brand-goldlight">Most Popular</span>
+                <!-- Small Business Card -->
+                <div class="bg-brand-900/95 backdrop-blur-md rounded-[2.5rem] p-8 lg:p-10 shadow-2xl relative flex flex-col border border-brand-800 h-full glow-card-subtle">
+                    
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+                        <span class="bg-brand-gold text-brand-900 text-xs font-bold uppercase tracking-widest py-2 px-6 rounded-full shadow-lg border border-brand-goldlight">Most Popular</span>
                     </div>
-                    <div class="mb-8 border-b border-white/10 pb-8 mt-2">
+
+                    <div class="mb-6 border-b border-white/10 pb-6 flex flex-col items-center text-center mt-2">
+                        <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-brand-gold text-xl mb-4 border border-white/10 shadow-sm"><i class="fas fa-building"></i></div>
                         <h4 class="text-3xl font-serif font-bold text-white mb-2">Small Business</h4>
-                        <p class="text-brand-gold font-bold text-xs uppercase tracking-wider mb-2">Best for Companies with VAT</p>
-                        <p class="text-gray-400 text-sm h-10 font-medium">For small trading/e-commerce companies managing VAT and CT.</p>
-                        <div class="mt-6 flex items-baseline text-6xl font-extrabold text-white tracking-tight">
-                            <span class="text-2xl text-gray-500 font-medium mr-2">AED</span> 500
-                            <span class="ml-2 text-xl font-medium text-gray-500">/mo</span>
+                        <div class="mt-4 flex items-baseline text-5xl font-extrabold text-white tracking-tight">
+                            <span class="text-xl text-gray-500 font-medium mr-2">AED</span> 500
+                            <span class="ml-2 text-lg font-medium text-gray-500">/mo</span>
                         </div>
                     </div>
-                    <ul class="space-y-5 mb-10 flex-1">
-                        <li class="flex items-start gap-4">
-                            <div class="w-6 h-6 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center flex-shrink-0 mt-0.5"><i class="fas fa-check text-xs"></i></div>
-                            <span class="text-gray-300 font-medium">Everything in Solo Tracker</span>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-6 h-6 rounded-full bg-brand-gold text-brand-900 flex items-center justify-center flex-shrink-0 mt-0.5"><i class="fas fa-check text-xs"></i></div>
-                            <span class="text-white font-bold">VAT Return Cycle Tracking</span>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-6 h-6 rounded-full bg-brand-gold text-brand-900 flex items-center justify-center flex-shrink-0 mt-0.5"><i class="fas fa-check text-xs"></i></div>
-                            <span class="text-white font-bold">E-Invoicing Readiness Updates</span>
-                        </li>
-                    </ul>
-                    <a href="#book-call" class="block w-full py-4 px-6 bg-brand-gold rounded-full text-center font-bold text-brand-900 shadow-gold-glow hover:shadow-gold-glow-hover transition-all hover:scale-[1.02] text-lg mt-auto">
+
+                    <div class="space-y-8 flex-1">
+                        <!-- Base inclusion -->
+                        <div class="bg-brand-gold/10 border border-brand-gold/20 p-4 rounded-xl text-center">
+                            <span class="text-sm font-bold text-brand-gold uppercase tracking-wider"><i class="fas fa-layer-group mr-2"></i>Everything in Solo Tracker, PLUS:</span>
+                        </div>
+
+                        <!-- Target Customers -->
+                        <div>
+                            <h5 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 flex items-center gap-2"><i class="fas fa-bullseye text-brand-gold"></i> Target Customers</h5>
+                            <p class="text-sm text-gray-200 font-medium leading-relaxed bg-white/5 p-4 rounded-xl border border-white/10">
+                                Perfect for Small trading companies, e-commerce brands, and local agencies that <strong>manage VAT and Corporate Tax</strong>.
+                            </p>
+                        </div>
+
+                        <!-- Upgraded Coverage -->
+                        <div>
+                            <h5 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 flex items-center gap-2"><i class="fas fa-clipboard-list text-brand-gold"></i> 1. Upgraded Coverage</h5>
+                            <ul class="space-y-4 text-sm text-gray-300">
+                                <li class="bg-white/5 border border-white/10 p-4 rounded-xl shadow-sm">
+                                    <strong class="text-white block mb-1">VAT Registration & Returns</strong>
+                                    <span class="text-gray-400 block text-xs mb-3">Track: Reg status, TRN, Filing/Payment due dates, Filing frequency.</span>
+                                    <div class="bg-brand-gold/10 border border-brand-gold/20 px-3 py-2 rounded-lg inline-block">
+                                        <span class="block text-[9px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Reminder Schedule</span>
+                                        <span class="text-xs font-bold text-brand-gold tracking-wide">45 • 30 • 14 • 7 • 3 Days • Due Date</span>
+                                    </div>
+                                </li>
+                                <li class="bg-white/5 border border-white/10 p-4 rounded-xl shadow-sm">
+                                    <strong class="text-white block mb-1">E-Invoicing Readiness</strong>
+                                    <span class="text-gray-400 block text-xs">Official E-Invoicing updates & readiness alerts</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Premium Service Features -->
+                        <div>
+                            <h5 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 flex items-center gap-2"><i class="fas fa-star text-brand-gold"></i> 2. Deliverables</h5>
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-gray-300 font-medium">
+                                <li class="flex items-center"><i class="fas fa-check text-brand-gold w-4"></i> Advanced Combined Calendar</li>
+                                <li class="flex items-center"><i class="fas fa-check text-brand-gold w-4"></i> Priority WhatsApp Support</li>
+                                <li class="flex items-center"><i class="fas fa-check text-brand-gold w-4"></i> VAT deadline tracking</li>
+                                <li class="flex items-center"><i class="fas fa-check text-brand-gold w-4"></i> Full Monthly Compliance Report</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- NOT Included -->
+                        <div class="bg-red-900/20 border border-red-900/50 p-5 rounded-xl mt-auto">
+                            <h5 class="text-xs font-bold text-red-400 uppercase tracking-wider mb-3 flex items-center gap-2"><i class="fas fa-ban"></i> Strictly Not Included</h5>
+                            <ul class="grid grid-cols-2 gap-y-2 gap-x-4 text-xs text-gray-400 font-medium">
+                                <li><i class="fas fa-times text-red-500 mr-1.5"></i> VAT Return Preparation</li>
+                                <li><i class="fas fa-times text-red-500 mr-1.5"></i> Corporate Tax filing</li>
+                                <li><i class="fas fa-times text-red-500 mr-1.5"></i> Govt portal submissions</li>
+                                <li><i class="fas fa-times text-red-500 mr-1.5"></i> Accounting/Bookkeeping</li>
+                                <li><i class="fas fa-times text-red-500 mr-1.5"></i> Audit/Legal services</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <a href="#book-call" class="mt-8 block w-full py-4 px-6 bg-brand-gold rounded-full text-center font-bold text-brand-900 shadow-gold-glow hover:shadow-gold-glow-hover transition-all hover:scale-[1.02] text-lg">
                         Book Intro Call
                     </a>
                 </div>
@@ -939,7 +1033,7 @@
                     <h5 class="text-white font-bold mb-6 tracking-wide uppercase text-sm">Important Disclaimer</h5>
                     <div class="p-5 bg-white/5 rounded-2xl border border-white/10">
                         <p class="text-gray-400 text-xs leading-relaxed font-medium">
-                            This service provides deadline tracking and document preparation support based on publicly available UAE regulations (FTA/MoF). It does not constitute legal, tax, or financial advice, and does not replace a licensed UAE auditor, tax agent, or PRO.
+                            WAQT provides deadline tracking and compliance reminder services based on publicly available UAE regulations and official guidance. WAQT does not provide legal, tax, accounting, auditing, or PRO services, and does not prepare or submit documents on behalf of clients. Clients remain responsible for completing all required filings, renewals, and payments.
                         </p>
                     </div>
                 </div>
